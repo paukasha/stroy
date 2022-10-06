@@ -1,6 +1,29 @@
 Vue.component('v-select', VueSelect.VueSelect);
 const { jsPDF } = window.jspdf;
 
+window.onload = () => {
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+    
+        // loop: true,
+      
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      
+    
+    
+      });
+}
+
+
 new Vue({
     el: '#app',
     data() {
