@@ -54,7 +54,11 @@
                             <span class="swiper__descr">
                                 Будьте в курсе самой полной и актуальной информации о выделяемых 
                                 по программе Дом Дальневосточника участках и следите за ходом 
-                                строительства в личном кабинете на сайте <a href="https://xn--80az8a.xn--d1aqf.xn--p1ai/" target="_blank">наш.дом.рф. </a>
+                                строительства в личном кабинете на сайте 
+                                <a href="https://xn--80az8a.xn--d1aqf.xn--p1ai/" 
+                                    target="_blank"
+                                    class="house__link"
+                                >наш.дом.рф. </a>
                             </span>
                         </div>
                       
@@ -246,6 +250,31 @@
                                                 @click.prevent="goToNext(item, idx, quest, index)">
                                             Перейти к следующему вопросу
                                         </button> 
+                                    </div>
+
+                                    <div v-if="selectValue && item.id === 2 && quest.value == 'Нет, выбираю варианты'"
+                                    class="selected-land"
+                                    > 
+                                        <span class="quest-text">Введите кадастровый номер выбранного вами участка</span>
+                                        <label class="land__label">
+                                            <input type="text">
+                                        </label>
+                                       
+                                        <div class="land-btn__block">
+                                            <button class="btn-reset actual-btn go-to-next-btn"
+                                            type="button"
+                                                    @click.prevent="goToNext(item, idx, quest, index, 'falseSelectedValue')"
+                                            >
+                                                Продолжить
+                                            </button>
+                                            <button class="btn-reset actual-btn go-to-next-btn"
+                                                    type="button"
+                                                    @click.prevent="goToNext(item, idx, quest, index, 'falseSelectedValue')"
+                                            >
+                                                Пропустить
+                                            </button>
+                                        </div>
+                                      
                                     </div>
 
                                    

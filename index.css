@@ -605,3 +605,51 @@ html {
     left: 0;
     background-color: #343434a3;
   }
+
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after,
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled,
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+  color: #fff !important;
+}
+
+
+.swiper-pagination-bullet-active {
+  color: white;
+  background: white;
+}
+
+.house__link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.land-btn__block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+}
+
+.land-btn__block button {
+  display: block;
+  text-align: center;
+}
+
+.selected-land {
+  padding: 10px 0;
+}
+
+.land__label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.land__label input {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  padding: 10px;
+  border: 1px solid grey;
+}

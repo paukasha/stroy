@@ -56,8 +56,10 @@ new Vue({
                             answers: ['Да, есть в собственности', 'Уже выбрал, планирую приобрести', 'Нет, выбираю варианты'],
                             value: '', 
                             isChecked: false,
-                            questType: 'radio', },
-                            { id: 3,
+                            questType: 'radio', 
+                        },
+                            {   
+                                id: 3,
                                 question: 'Вид разрешенного использования выбранного Вами земельного участка позволяет строить дом?',
                                 answers: ['Да', 'Нет', 'Не знаю'],
                                 value: '', 
@@ -65,6 +67,7 @@ new Vue({
                                 questType: 'radio',
                             }
                     ],
+          
                     icon: icons.land,
                     isChecked: false
                 },
@@ -243,6 +246,7 @@ new Vue({
             isQuestWasOpened: [],
             monthPay: 1,
             variants:  ['Лично клиентом со всеми правоустанавливающими документами', 'По почте нарочно', 'Через личный кабинет госуслуг' ],
+            selectValue: false
           
            
         }
@@ -269,8 +273,7 @@ new Vue({
                this.filteredCurrentQuestion = nextEl
     
         },
-        goToNext(item, idx, quest, questIdx, currentQuestion) {
-                       
+        goToNext(item, idx, quest, questIdx, falseSelectedValue) {
             if (this.questionsList[idx].options.length == 1) {
                 console.log('если  в квестлисте options == 1')
                     this.setNextQuestion(item, idx)
@@ -278,8 +281,21 @@ new Vue({
                     console.log('if')
             } else  if (this.questionsList[idx].options.length > 1 ) {
                    if (this.questionsList[idx].options.lastIndexOf(quest) != 0 || quest.value != quest.answers[0]) {
-                    this.currentQuestion.options[questIdx].isChecked == true
-                    this.setNextQuestion(item, idx)
+
+                    if (quest.value == 'Нет, выбираю варианты') {
+                        if (falseSelectedValue) {
+                       
+                            this.currentQuestion.options[questIdx].isChecked == true
+                            this.setNextQuestion(item, idx)
+                         } else {
+                            this.selectValue = true
+                         }
+                          
+                    } else {
+                        this.currentQuestion.options[questIdx].isChecked == true
+                        this.setNextQuestion(item, idx)
+                    }
+                  
                        
                    } else {
           
